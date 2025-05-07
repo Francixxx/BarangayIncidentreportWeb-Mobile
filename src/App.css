@@ -12,41 +12,72 @@ body, html, #root {
   min-height: 100vh;
 }
 
-/* Header */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #b22222; /* Dark red */
+  padding: 5px 20px;
+  background-color: #b22222;
   color: white;
-  padding: 15px 30px;
-}
-
-.header .left {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .logo {
-  width: 40px;
   height: 40px;
+  margin-right: 10px;
 }
 
-.right a {
-  margin-right: 20px;
+.left {
+  display: flex;
+  align-items: center;
+}
+
+.right {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.right a,
+.right button {
   color: white;
   text-decoration: none;
-}
-
-.login-btn {
-  background-color: white;
-  color: #b22222;
+  background: none;
   border: none;
-  padding: 8px 15px;
-  border-radius: 4px;
+  font-size: 1rem;
   cursor: pointer;
 }
+
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .right {
+    display: none;
+    flex-direction: column;
+    background-color: #b22222;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    padding: 15px;
+    border-radius: 8px;
+  }
+
+  .right.open {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
 
 .login-btn1 {
   background-color: white;
@@ -91,4 +122,144 @@ body, html, #root {
 
 .overlay p {
   font-size: 1.2rem;
+}
+
+
+
+/* Add this CSS to your App.css file */
+
+/* Footer Styles */
+.footer {
+  background-color: #1a1a1a;
+  color: #fff;
+  padding: 40px 0 20px; 
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-section {
+  flex: 1;
+  padding: 0 20px;
+  min-width: 250px;
+  margin-bottom: 20px;
+}
+
+.footer-section h3 {
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 15px;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.footer-section h3::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 50px;
+  background-color: #f75f45;
+}
+
+.about p {
+  margin-bottom: 20px;
+  color: #b9b9b9;
+  line-height: 1.5;
+}
+
+.contact span {
+  display: block;
+  margin-bottom: 8px;
+  color: #b9b9b9;
+}
+
+.socials {
+  margin-top: 20px;
+}
+
+.socials a {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  background-color: #333;
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 35px;
+  margin-right: 10px;
+  transition: all 0.3s ease;
+}
+
+.socials a:hover {
+  background-color: #f75f45;
+  transform: translateY(-3px);
+}
+
+.links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.links ul li {
+  margin-bottom: 10px;
+}
+
+.links ul li a {
+  color: #b9b9b9;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.links ul li a:hover {
+  color: #f75f45;
+  padding-left: 5px;
+}
+
+.additional-info p {
+  color: #b9b9b9;
+  line-height: 1.6;
+  margin-bottom: 5px;
+}
+
+.address {
+  margin-top: 20px;
+}
+
+.address h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.address p {
+  color: #b9b9b9;
+  line-height: 1.4;
+  margin-bottom: 5px;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  margin-top: 20px;
+  border-top: 1px solid #444;
+  color: #b9b9b9;
+  font-size: 14px;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+  }
+  
+  .footer-section {
+    margin-bottom: 30px;
+  }
 }

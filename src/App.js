@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import './App.css';
 import About from './About';
-
+import Footer from './Footer';
 
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <div className="app">
       <header className="header">
@@ -11,10 +13,16 @@ function App() {
           <img src="/images/logo.png" alt="Logo" className="logo" />
           <h1>PatrolTrack</h1>
         </div>
-        <div className="right">
+
+        <div className={`right ${menuOpen ? 'open' : ''}`}>
+        <a href="#home">Home</a>
           <a href="#about">About Us</a>
           <a href="#contact">Contact</a>
           <button className="login-btn1">Log in</button>
+        </div>
+
+        <div className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
+          ☰
         </div>
       </header>
 
@@ -27,6 +35,7 @@ function App() {
       </main>
 
       <About />
+      <Footer />
     </div>
   );
 }
